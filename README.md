@@ -19,7 +19,7 @@ Since it uses ngrok, you can access it's UI and inspect the incoming requests.
 
    > cp config/config.tpl.js config.js
 
-2. Enter the appropriate information on AWS and SNS keys.
+2. Edit the created file and enter the appropriate information on AWS and SNS keys.
 
 <br/>
 
