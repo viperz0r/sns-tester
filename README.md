@@ -39,4 +39,4 @@ Press **CTRL + C** to gracefully stop the program. This way the subscription is 
 
 ## Advanced
 
-You can pass more options to SNS and ngrok, by declaring them on config.json.
+You can pass more options to SNS and ngrok, by declaring them on config.js.
