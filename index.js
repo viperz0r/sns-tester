@@ -65,17 +65,22 @@ async function processMessage(req, reply) {
       subscriptionArn = result.SubscriptionArn;
       console.log("\nSubscription confirmed! Ready to receive messages.");
     } else if (req.body.Type === "Notification") {
-      let message = req.body.Message;
+      const { Timestamp, Message, MessageAttributes } = req.body;
+
+      let notification = {
+        timestamp: Timestamp,
+        message: Message,
+        attributes: MessageAttributes,
+      };
+
       try {
-        message = JSON.parse(message);
+        notification.message = JSON.parse(Message);
       } catch (error) {
-        // do nothing
+        // do nothing, it´s not a valid JSON
       }
 
       console.log("\nMessage Received:");
-      typeof message === "object"
-        ? console.log(JSON.stringify(message, null, 2))
-        : console.log(message);
+      console.log(JSON.stringify(notification, null, 2));
     }
 
     reply.code(200).send();
